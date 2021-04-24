@@ -1,0 +1,63 @@
+.header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: black;
+    color : white;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.jumbotron {
+    margin: 0.5rem;
+    padding-left: 2em;
+    padding-top: 0.8em;
+    padding-bottom: 3em;
+}
+
+body {
+    margin: 0px;
+}
+
+p {
+    font-size: 1.3em;
+    margin-bottom: 0.4rem;
+}
+
+hr {
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.subtotal {
+    font-size: 1.5em;
+}
+
+.alert-primary {
+    margin: 0.5em;
+}
+
+.noitems {
+    margin-left: 10px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding-top: 10px;
+    background-color: #e5e7e9;
+    color: black;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.bottomtotal {
+   margin-top: 0px;
+   margin-right: 10px;
+   margin-bottom: 10px;
+}

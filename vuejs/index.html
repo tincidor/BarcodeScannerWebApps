@@ -1,0 +1,57 @@
+<html>
+<head>
+    <!-- Firebase App is always required and must be first -->
+	<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-storage.js"></script>
+    <script src="js/firebase.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css" >
+
+    <script src="js/logic.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="header">Order</div>
+
+        <div class="alert alert-primary" role="alert">
+            State: <b>{{operationState.current}}</b>
+        </div>
+
+        <div class="noitems" v-if="scannedProducts.length == 0">No items added yet. Scan barcode of products.</div>
+
+        <div v-if="scannedProducts.length > 0" v-for="item in scannedProducts">
+            <div class="jumbotron">
+                <h1 class="display-5">
+                  <!-- Shopping cart icon -->
+                  <svg width="0.8em" height="0.8em" viewBox="0 0 16 16" class="bi bi-basket2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"/>
+                    <path fill-rule="evenodd" d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"/>
+                  </svg>
+
+                  {{item.name}} ({{item.barcode}})
+                </h1>
+        
+                <hr class="">
+                <p>Count: <b>{{item.count}}</b>, Price: <b>{{item.price}} $</b></p>
+                <p>{{item.description}}</p>
+                <hr class="">
+                <p1 class="float-right subtotal">Subtotal: <b>{{item.count * item.price}} $</b><p1>
+            </div>
+        </div>
+
+
+        <div class="footer"> <div class="float-right bottomtotal">Total: {{totalAmount}} $</div> </div>
+    </div>
+</body>
+</html>
